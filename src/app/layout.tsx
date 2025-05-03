@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <NavBar />
-        <main className="relative min-h-screen">{children}</main>
+        <main className="relative min-h-screen w-screen overflow-x-hidden">{children}</main>
       </body>
     </html>
   );

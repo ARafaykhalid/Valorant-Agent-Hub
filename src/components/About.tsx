@@ -38,13 +38,9 @@ const About = () => {
           containerClass="mt-5 !text-black text-center"
         />
 
-        <div className="about-subtext ">
-          <p>The Game of Games begins-your life, now an epic MMORPG</p>
-          <p>Zentry Unites every players</p>
-        </div>
       </div>
 
-      <div className="h-dscreen" id="clip">
+      <div className="h-dvh w-screen" id="clip">
         <div className="mask-clip-path about-image">
           <img
             src="img/about.webp"

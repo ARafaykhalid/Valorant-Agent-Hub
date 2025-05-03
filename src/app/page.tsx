@@ -5,11 +5,11 @@ import { ScrollSmoother, ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import { useEffect } from "react";
 import { useGSAP } from "@gsap/react";
+import Features from "@/components/Features";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
 const App = () => {
-
   // useGSAP(() => {
   //   const smoother = ScrollSmoother.create({
   //     smooth: 2,
@@ -26,7 +26,7 @@ const App = () => {
     <>
       <Hero />
       <About />
-      <div className="w-screen h-screen"/>
+      <Features />
     </>
   );
 };
