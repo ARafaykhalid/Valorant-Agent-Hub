@@ -5,7 +5,15 @@ import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const About = () => {
+const About = ({
+  AboutImg,
+  AgentKickLine,
+  AgentName,
+}: {
+  AboutImg: string;
+  AgentName: string;
+  AgentKickLine: string;
+}) => {
   useGSAP(() => {
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
@@ -28,24 +36,21 @@ const About = () => {
     <div id="about" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <h2 className="font-general text-sm uppercase md:text-[10px]">
-          Welcome to Zentry
+          {AgentName}
         </h2>
 
         <AnimatedTitle
-          title={
-            "Disc<b>o</b>ver the world's <br/> l<b>a</b>rgest shared adventure"
-          }
+          title={AgentKickLine}
           containerClass="mt-5 !text-black text-center"
         />
-
       </div>
 
       <div className="h-dvh w-screen" id="clip">
         <div className="mask-clip-path about-image">
           <img
-            src="img/about.webp"
+            src={AboutImg}
             alt="Background"
-            className="absolute left-0 top-0 size-full object-cover"
+            className="absolute left-0 top-0 size-full duration-700 object-cover"
           />
         </div>
       </div>

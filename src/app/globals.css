@@ -22,6 +22,7 @@ body {
   --color-violet-300: #5724ff;
   --color-yellow-100: #8e983f;
   --color-yellow-300: #edff66;
+  --color-roit: #ff4655;
 }
 
 @layer base {
@@ -61,7 +62,7 @@ body {
   }
 
   .floating-nav {
-    @apply bg-black rounded-lg border;
+    @apply bg-black border-2 border-roit rounded-2xl;
   }
 
   .absolute-center {
@@ -118,17 +119,22 @@ body {
     @apply uppercase md:text-6xl text-4xl font-black font-zentry;
   }
 
-  .story-img-container {
+  .card-img-container {
     @apply relative md:h-dvh h-[90vh] w-full;
     filter: url("#flt_tag");
   }
 
-  .story-img-mask {
+  .card-img-mask {
     @apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5;
-    clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
+    clip-path: polygon(4% 0, 70% 0%, 80% 73%, 0% 100%);
+    @media (min-width: 768px) {
+      .card-img-mask {
+        clip-path: polygon(4% 0, 83% 24%, 100% 73%, 0% 100%);
+      }
+    }
   }
 
-  .story-img-content {
+  .card-img-content {
     @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
     transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
   }
