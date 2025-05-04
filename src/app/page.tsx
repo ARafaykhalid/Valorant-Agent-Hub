@@ -6,6 +6,8 @@ import gsap from "gsap";
 import { useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import Features from "@/components/Features";
+import Story from "@/components/Story";
+import Contact from "@/components/Contact";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
@@ -27,6 +29,8 @@ const App = () => {
       <Hero />
       <About />
       <Features />
+      <Story />
+      <Contact />
     </>
   );
 };
