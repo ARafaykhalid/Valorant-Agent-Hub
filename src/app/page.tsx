@@ -16,42 +16,46 @@ import { Agents } from "@/Data/agent";
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
 const App = () => {
+  const totalAgents: number = Agents.length;
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [mouseMove, setMouseMove] = useState(0);
-  const lastMoveTime = useRef<number>(Date.now());
-
   const [hasClicked, setHasClicked] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [loadedImages, setLoadedImages] = useState<number>(0);
   const [transformStyle, settransformStyle] = useState<string>("");
+  const lastMoveTime = useRef<number>(Date.now());
+  const nextImageRef = useRef<HTMLDivElement>(null);
   const TiltImageRef = useRef<HTMLDivElement>(null);
 
-  const totalAgents: number = Agents.length;
-  const nextImageRef = useRef<HTMLDivElement>(null);
+  const clamp = (value: number, min: number, max: number) =>
+    Math.min(Math.max(value, min), max);
 
-  const handleImageMouseMove = (e: { clientX: number; clientY: number }) => {
-    lastMoveTime.current = Date.now();
-    setMouseMove((prev) => Math.min(150, prev + 20));
-
+  const handleImageMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!TiltImageRef.current) return;
+
     const { left, top, width, height } =
       TiltImageRef.current.getBoundingClientRect();
-
     const relativeX = (e.clientX - left) / width;
     const relativeY = (e.clientY - top) / height;
 
-    const tiltX = (relativeY - 1) * -10;
-    const tiltY = (relativeX - 1) * 10;
+    // Calculate tilt in a range like ±20deg (you can increase it but not over ±90)
+    const rawTiltX = (relativeY - 0.5) * -40; // vertical
+    const rawTiltY = (relativeX - 0.5) * 40; // horizontal
+
+    const tiltX = clamp(rawTiltX, -45, 45);
+    const tiltY = clamp(rawTiltY, -45, 45);
+
+    lastMoveTime.current = Date.now();
+    setMouseMove((prev) => Math.min(150, prev + 5));
 
     if (mouseMove >= 100) {
-      const newTransform: string = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d( 0.95, 0.95, 0.95)`;
+      const newTransform = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(0.95, 0.95, 0.95)`;
       settransformStyle(newTransform);
     }
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const now = Date.now();
       const timeSinceLastMove = lastMoveTime.current;
 
       if (timeSinceLastMove > 300 && mouseMove > 0) {
@@ -157,8 +161,12 @@ const App = () => {
           <div>
             <div
               ref={TiltImageRef}
-              className={`mask-clip-path duration-500 opacity-0 font-zentry absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg`}
-              style={{ scale: mouseMove / 100, opacity: mouseMove / 100, transform: transformStyle }}>
+              className={`mask-clip-path ease-linear duration-500 opacity-0 font-zentry absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg`}
+              style={{
+                scale: mouseMove / 100,
+                opacity: mouseMove / 100,
+                transform: transformStyle,
+              }}>
               <div
                 onClick={handleMiniImageClick}
                 className={`origin-center hover:scale-150 transition-all ease-in duration-500`}>
