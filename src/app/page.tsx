@@ -17,12 +17,55 @@ gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
 const App = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [mouseMove, setMouseMove] = useState(0);
+  const lastMoveTime = useRef<number>(Date.now());
+
   const [hasClicked, setHasClicked] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [loadedImages, setLoadedImages] = useState<number>(0);
+  const [transformStyle, settransformStyle] = useState<string>("");
+  const TiltImageRef = useRef<HTMLDivElement>(null);
 
   const totalAgents: number = Agents.length;
   const nextImageRef = useRef<HTMLDivElement>(null);
+
+  const handleImageMouseMove = (e: { clientX: number; clientY: number }) => {
+    lastMoveTime.current = Date.now();
+    setMouseMove((prev) => Math.min(150, prev + 20));
+
+    if (!TiltImageRef.current) return;
+    const { left, top, width, height } =
+      TiltImageRef.current.getBoundingClientRect();
+
+    const relativeX = (e.clientX - left) / width;
+    const relativeY = (e.clientY - top) / height;
+
+    const tiltX = (relativeY - 1) * -10;
+    const tiltY = (relativeX - 1) * 10;
+
+    if (mouseMove >= 100) {
+      const newTransform: string = `perspective(700px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d( 0.95, 0.95, 0.95)`;
+      settransformStyle(newTransform);
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const timeSinceLastMove = lastMoveTime.current;
+
+      if (timeSinceLastMove > 300 && mouseMove > 0) {
+        setMouseMove((prev) => Math.max(0, prev - 2));
+      }
+    }, 100);
+    return () => clearInterval(interval);
+  }, [mouseMove]);
+
+  const handleMouseLeave = () => {
+    settransformStyle(
+      `perspective(700px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`
+    );
+  };
 
   const handleImageLoad = (): void => {
     setLoadedImages((prev) => prev + 1);
@@ -85,9 +128,13 @@ const App = () => {
     });
   });
 
-  
-
-  const getImageSrc = (index: number) => `/img/hero-${index + 1}.jpg`;
+  const getImageSrc = (index: number) => {
+    if (index === -1) {
+      return `/img/hero-4.jpg`;
+    } else {
+      return `/img/hero-${index + 1}.jpg`;
+    }
+  };
 
   return (
     <>
@@ -104,18 +151,23 @@ const App = () => {
 
         <div
           id="Image-frame"
-          className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
+          className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75"
+          onMouseMove={handleImageMouseMove}
+          onMouseLeave={handleMouseLeave}>
           <div>
-            <div className="mask-clip-path font-zentry absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
+            <div
+              ref={TiltImageRef}
+              className={`mask-clip-path duration-500 opacity-0 font-zentry absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg`}
+              style={{ scale: mouseMove / 100, opacity: mouseMove / 100, transform: transformStyle }}>
               <div
                 onClick={handleMiniImageClick}
-                className="origin-center hover:scale-150 hover:opacity-100 opacity-0 transition-all ease-in duration-500">
+                className={`origin-center hover:scale-150 transition-all ease-in duration-500`}>
                 <div ref={nextImageRef}>
                   <Image
                     src={getImageSrc((currentIndex + 1) % totalAgents)}
                     width={2000}
                     height={2000}
-                    alt="Next"
+                    alt="current"
                     id="current-Image"
                     className="size-64 origin-center scale-150 object-cover object-center"
                     onLoad={handleImageLoad}
@@ -129,14 +181,14 @@ const App = () => {
                 src={getImageSrc(currentIndex)}
                 width={2000}
                 height={2000}
-                alt="Current"
+                alt="next"
                 id="next-Image"
                 className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
               />
             </div>
 
             <Image
-              src={getImageSrc((currentIndex + 1) % totalAgents)}
+              src={getImageSrc(currentIndex - 1)}
               width={2000}
               height={2000}
               alt="Background"
@@ -144,11 +196,9 @@ const App = () => {
               onLoad={handleImageLoad}
             />
           </div>
-
           <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
             {Agents[currentIndex].AgentType()}
           </h1>
-
           <div className="absolute left-0 top-0 z-40 size-full">
             <div className="mt-24 px-5 sm:px-10">
               <h1 className="special-font hero-heading text-blue-100">

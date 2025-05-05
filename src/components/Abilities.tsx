@@ -121,7 +121,7 @@ const Abilities = ({
           <div className="relative size-full">
             <iframe
               src={`https://www.youtube.com/embed/${Trailer}?autoplay=1&mute=1&loop=1&controls=0&playlist=${Trailer}`}
-              className="absolute left-0 top-0 size-full object-cover scale-120 object-center"
+              className="absolute left-0 top-0 size-full object-cover scale-225 xl:scale-120 object-center"
               allow="autoplay; encrypted-media"
               allowFullScreen
             />

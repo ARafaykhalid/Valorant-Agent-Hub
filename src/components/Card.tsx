@@ -53,7 +53,7 @@ const Card = ({
   return (
     <section id="card" className="min-h-dvh w-screen bg-black text-blue-50">
       <div className="flex size-full flex-col items-center py-10 pb-24">
-        <p className="font-general text-sm uppercase md:text-[10px]">
+        <p className="font-general z-25 text-sm uppercase md:text-[10px]">
           {AgentType}
         </p>
         <div className="relative size-full">
@@ -62,7 +62,7 @@ const Card = ({
             title={AgentName}
           />
 
-          <div className="card-img-container">
+          <div className="card-img-container mt-20">
             <div className="card-img-mask">
               <div className="card-img-content">
                 <div ref={frameRef}>

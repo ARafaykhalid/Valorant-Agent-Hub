@@ -84,7 +84,7 @@ export const Agents: agent[] = [
     Ab1: () => <>Steel Garden</>,
     Ab1Vid: "/Vyse/videos/AbVid1.mp4",
     Ab1Desc:
-      "EEQUIP a bramble of liquid metal. FIRE to send the metal erupting from you as a torrent of metal thorns, JAMMING enemy primary weapons after a brief windup.",
+      "EQUIP a bramble of liquid metal. FIRE to send the metal erupting from you as a torrent of metal thorns, JAMMING enemy primary weapons after a brief windup.",
     Ab2: () => <>Razorvine</>,
     Ab2Vid: "/Vyse/videos/AbVid2.mp4",
     Ab2Desc:
@@ -100,5 +100,81 @@ export const Agents: agent[] = [
     Trailer: "btpWg1gDXIE",
     ColorBG: "!bg-[#6153b7] text-white",
     ColorBD: "!border-[#6153b7]",
+  },
+  {
+    AgentNameN: "ISO",
+    AgentTypeN: "DUELIST",
+    AgentName: () => (
+      <>
+        IS<b>O</b>
+      </>
+    ),
+    AgentType: () => (
+      <>
+        DU<b>E</b>LIST
+      </>
+    ),
+    AgentDescription:
+      "Chinese fixer for hire, Iso falls into a flow state to dismantle the opposition. Reconfiguring ambient energy into bulletproof protection, he advances with focus towards his next duel to the death.",
+    AgentKickLine: "Enough training, it's time.",
+    AgentAboutImg: "/Iso/img/about.jpg",
+    AgentCard: "/Iso/img/card.jpg",
+    Ab1: () => <>KILL CONTRACT</>,
+    Ab1Vid: "/Iso/videos/AbVid1.mp4",
+    Ab1Desc:
+      "EQUIP an interdimensional arena. FIRE to hurl a column of energy through the battlefield, pulling you and the first enemy hit into the arena. You and your opponent duel to the death.",
+    Ab2: () => <>CONTINGENCY</>,
+    Ab2Vid: "/Iso/videos/AbVid2.mp4",
+    Ab2Desc:
+      "EQUIP to assemble prismatic energy. FIRE to push an indestructible wall of energy forward that blocks bullets.",
+    Ab3: () => <>DOUBLE TAP</>,
+    Ab3Vid: "/Iso/videos/AbVid3.mp4",
+    Ab3Desc:
+      "START a focus timer. Once completed, enter a flow state during which downed enemies you kill or damage generate an energy orb. Shooting this orb grants you a shield which absorbs one instance of damage from any source.",
+    Ab4: () => <>UNDERCUT</>,
+    Ab4Vid: "/Iso/videos/AbVid4.mp4",
+    Ab4Desc:
+      "EQUIP a molecular bolt. Fire to throw it forward, applying a brief FRAGILE to all players it touches. The bolt can pass through solid objects, including walls.",
+    Trailer: "8OgcHAv6Jvk",
+    ColorBG: "!bg-[#383f4c] text-white",
+    ColorBD: "!border-[#383f4c]",
+  },
+  {
+    AgentNameN: "GEKKO",
+    AgentTypeN: "INITIATOR",
+    AgentName: () => (
+      <>
+        GE<b>KK</b>O
+      </>
+    ),
+    AgentType: () => (
+      <>
+        INITI<b>A</b>TOR
+      </>
+    ),
+    AgentDescription:
+      "Gekko the Angeleno leads a tight-knit crew of calamitous creatures. His buddies bound forward, scattering enemies out of the way, with Gekko chasing them down to regroup and go again.",
+    AgentKickLine: "Wachale guey, my crew is coming through.",
+    AgentAboutImg: "/Gekko/img/about.jpg",
+    AgentCard: "/Gekko/img/card.jpg",
+    Ab1: () => <>THRASH</>,
+    Ab1Vid: "/Gekko/videos/AbVid1.mp4",
+    Ab1Desc:
+      "EQUIP Thrash FIRE to link with Thrash's mind and steer her through enemy territory ACTIVATE to lunge forward and explode, detaining any enemies in a small radius. When Thrash expires she reverts into a dormant globule INTERACT to reclaim the globule and gain another Thrash charge after a short cooldown. Thrash can be reclaimed once.",
+    Ab2: () => <>MOSH PIT</>,
+    Ab2Vid: "/Gekko/videos/AbVid2.mp4",
+    Ab2Desc:
+      "EQUIP Mosh FIRE to throw Mosh like a grenade ALT FIRE to throw underhand. Upon landing Mosh duplicates across a large area then after a short delay explodes.",
+    Ab3: () => <>DIZZY</>,
+    Ab3Vid: "/Gekko/videos/AbVid3.mp4",
+    Ab3Desc:
+      "EQUIP Dizzy FIRE to send Dizzy soaring forward through the air. Dizzy charges then unleashes plasma blasts at enemies in line of sight. Enemies hit by her plasma are blinded. When Dizzy expires she reverts into a dormant globule INTERACT to reclaim the globule and gain another Dizzy charge after a short cooldown.",
+    Ab4: () => <>WINGMAN</>,
+    Ab4Vid: "/Gekko/videos/AbVid4.mp4",
+    Ab4Desc:
+      "EQUIP Wingman FIRE to send Wingman forward seeking enemies. Wingman unleashes a concussive blast toward the first enemy he sees ALT FIRE when targeting a Spike site or planted Spike to have Wingman defuse or plant the Spike. To plant, Gekko must have the Spike in his inventory. When Wingman expires he reverts into a dormant globule INTERACT to reclaim the globule and gain another Wingman charge after a short cooldown.",
+    Trailer: "iYFh_XAXSPk",
+    ColorBG: "!bg-[#22c55e] text-white",
+    ColorBD: "!border-[#22c55e]",
   },
 ];

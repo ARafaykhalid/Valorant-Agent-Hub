@@ -17,12 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SmoothScrollWrapper>
+        {/* <SmoothScrollWrapper> */}
           <Header />
           <main className="relative min-h-screen w-screen overflow-x-hidden">
             {children}
           </main>
-        </SmoothScrollWrapper>
+        {/* </SmoothScrollWrapper> */}
       </body>
     </html>
   );
