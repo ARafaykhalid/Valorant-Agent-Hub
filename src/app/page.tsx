@@ -186,6 +186,7 @@ const App = () => {
                       src={getImageSrc((currentIndex + 1) % totalAgents)}
                       width={2000}
                       height={2000}
+                      priority 
                       alt="current"
                       id="current-Image"
                       className="size-64 origin-center scale-150 object-cover object-center"
@@ -200,6 +201,7 @@ const App = () => {
                   src={getImageSrc(currentIndex)}
                   width={2000}
                   height={2000}
+                  priority 
                   alt="next"
                   id="next-Image"
                   className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
@@ -210,6 +212,7 @@ const App = () => {
                 src={getImageSrc(currentIndex - 1)}
                 width={2000}
                 height={2000}
+                priority 
                 alt="Background"
                 className="absolute left-0 delay-1000 top-0 size-full object-cover object-center"
                 onLoad={handleImageLoad}
@@ -219,6 +222,7 @@ const App = () => {
                 src={`/img/hero-1.jpg`}
                 width={2000}
                 height={2000}
+                priority 
                 alt="Background"
                 className={`absolute z-25 left-0 top-0 size-full object-cover object-center ${FirstClick? "opacity-0":"opacity-100"}`}
                 onLoad={handleImageLoad}

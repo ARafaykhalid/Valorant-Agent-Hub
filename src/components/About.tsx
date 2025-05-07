@@ -1,3 +1,4 @@
+"use client"
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
@@ -53,6 +54,7 @@ const About = ({
             height={1080}
             src={AboutImg}
             alt="Background"
+            priority 
             className="absolute mask-b-from-50% mask-b-to-100% Image left-0 top-0 size-full duration-700 object-cover"
           />
         </div>

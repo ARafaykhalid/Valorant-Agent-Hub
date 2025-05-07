@@ -1,3 +1,4 @@
+"use client"
 import React, { useRef } from "react";
 import AnimatedTitle from "./AnimatedTitle";
 import gsap from "gsap";
@@ -71,6 +72,7 @@ const Card = ({
                     alt="entrance"
                     height={2000}
                     width={2000}
+                    priority 
                     onMouseLeave={handleMouseLeave}
                     onMouseUp={handleMouseLeave}
                     onMouseEnter={handleMouseLeave}
