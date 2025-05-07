@@ -110,7 +110,7 @@ const Abilities = ({
   ColorBD: string;
   ColorBG: string;
 }) => (
-  <section className="bg-black pb-52">
+  <section className="bg-black py-52" id="Abilities">
     <div className="container mx-auto px-3 pt-5 md:px-10">
       <BentoTilt
         ColorBD={ColorBD}
@@ -121,7 +121,7 @@ const Abilities = ({
           <div className="relative size-full">
             <iframe
               src={`https://www.youtube.com/embed/${Trailer}?autoplay=1&mute=1&loop=1&controls=0&playlist=${Trailer}`}
-              className="absolute left-0 top-0 size-full object-cover scale-225 xl:scale-120 object-center"
+              className="absolute left-0 top-0 size-full object-cover scale-225 xl:scale-125 object-center"
               allow="autoplay; encrypted-media"
               allowFullScreen
             />
@@ -141,19 +141,19 @@ const Abilities = ({
       <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
         <BentoTilt
           ColorBD={ColorBD}
-          className="bento-tilt_1 row-span-1 md:!col-span-1 md:row-span-2">
+          className="bento-tilt_1 md:!col-span-1 row-span-2">
           <BentoCard src={Ab1Vid} title={Ab1} description={Ab1Desc} />
         </BentoTilt>
 
         <BentoTilt
           ColorBD={ColorBD}
-          className="bento-tilt_1 row-span-1 ms-32 md:!col-span-1 md:ms-0">
+          className="bento-tilt_1 row-span-1 md:!col-span-1">
           <BentoCard src={Ab2Vid} title={Ab2} description={Ab2Desc} />
         </BentoTilt>
 
         <BentoTilt
           ColorBD={ColorBD}
-          className="bento-tilt_1 me-14 md:!col-span-1 md:me-0">
+          className="bento-tilt_1 md:!col-span-1">
           <BentoCard src={Ab3Vid} title={Ab3} description={Ab3Desc} />
         </BentoTilt>
 

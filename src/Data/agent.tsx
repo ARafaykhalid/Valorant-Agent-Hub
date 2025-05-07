@@ -43,10 +43,10 @@ export const Agents: agent[] = [
     AgentKickLine: "New Weapon Same War!",
     AgentAboutImg: "/Tejo/img/about.jpg",
     AgentCard: "/Tejo/img/card.jpg",
-    Ab1: () => <>Stealth Drone</>,
+    Ab1: () => <>Armageddon</>,
     Ab1Vid: "/Tejo/videos/AbVid1.mp4",
     Ab1Desc:
-      "EQUIP a stealth drone. FIRE to throw the drone forward, assuming direct control of its movement. FIRE again to trigger a pulse that Suppresses and Reveals enemies hit.",
+      "EQUIP a tactical strike targeting map. FIRE to select the origin point of the strike. FIRE again to set the end point and launch the attack, unleashing a wave of explosions along the strike path. ALT FIRE during map targeting to cancel the origin point.",
     Ab2: () => <>Special Delivery</>,
     Ab2Vid: "/Tejo/videos/AbVid2.mp4",
     Ab2Desc:
@@ -55,10 +55,10 @@ export const Agents: agent[] = [
     Ab3Vid: "/Tejo/videos/AbVid3.mp4",
     Ab3Desc:
       "EQUIP an AR targeting system. FIRE to select up to two target locations on the map. ALT FIRE to launch missiles that autonomously navigate to target locations, detonating on arrival.",
-    Ab4: () => <>Armageddon</>,
-    Ab4Vid: "/Tejo/videos/AbVid4.mp4",
+    Ab4: () => <>Stealth Drone</>,
+    Ab4Vid: "/Tejo/videos/AbVid1.mp4",
     Ab4Desc:
-      "EQUIP a tactical strike targeting map. FIRE to select the origin point of the strike. FIRE again to set the end point and launch the attack, unleashing a wave of explosions along the strike path. ALT FIRE during map targeting to cancel the origin point.",
+      "EQUIP a stealth drone. FIRE to throw the drone forward, assuming direct control of its movement. FIRE again to trigger a pulse that Suppresses and Reveals enemies hit.",
     Trailer: "dRuRID5JoQY",
     ColorBG: "!bg-[#FBE7A1] text-black",
     ColorBD: "!border-[#FBE7A1]",

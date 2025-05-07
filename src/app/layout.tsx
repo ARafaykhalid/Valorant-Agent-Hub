@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
-import SmoothScrollWrapper from "@/components/SmoothScrollWrapper";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,12 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <SmoothScrollWrapper> */}
-          <Header />
-          <main className="relative min-h-screen w-screen overflow-x-hidden">
-            {children}
-          </main>
-        {/* </SmoothScrollWrapper> */}
+        <Header />
+        <main className="relative min-h-screen w-screen overflow-x-hidden">
+          {children}
+        </main>
       </body>
     </html>
   );

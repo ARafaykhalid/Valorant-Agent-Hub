@@ -5,19 +5,28 @@ import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+gsap.registerPlugin(ScrollSmoother);
 
 const Header = () => {
-  const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
-  const [isIndicatorActive, setIsIndicatorActive] = useState<boolean>(false);
+  const navItems = [
+    { name: `About`, id: "#About" },
+    { name: `Abilities`, id: "#Abilities" },
+    { name: `Card`, id: "#Card" },
+    { name: `Who Made This?`, id: "#WhoMadeThis" },
+  ];
+
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [isIndicatorActive, setIsIndicatorActive] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const audioElementRef = useRef<HTMLAudioElement>(null);
   const navContainerRef = useRef<HTMLDivElement>(null);
+  const smootherRef = useRef<ScrollSmoother | null>(null);
 
   const { y: currentScrollY } = useWindowScroll();
-  const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
-  const [lastScrollY, setLastScrollY] = useState<number>(0);
 
   const toggleAudioIndicator = () => {
     setIsAudioPlaying((prev) => !prev);
@@ -25,17 +34,19 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (!audioElementRef.current) return;
-    if (!audioElementRef.current) return;
+    const audio = audioElementRef.current;
+    if (!audio) return;
+
     if (isAudioPlaying) {
-      audioElementRef.current.play();
+      audio.play().catch(() => {});
     } else {
-      audioElementRef.current.pause();
+      audio.pause();
     }
   }, [isAudioPlaying]);
 
   useEffect(() => {
     if (!navContainerRef.current) return;
+
     if (currentScrollY === 0) {
       setIsNavVisible(true);
       navContainerRef.current.classList.remove("floating-nav");
@@ -58,28 +69,60 @@ const Header = () => {
     });
   }, [isNavVisible]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && !smootherRef.current) {
+      const wrapper = document.querySelector("#smooth-wrapper");
+      const content = document.querySelector("#smooth-content");
+
+      if (wrapper && content) {
+        smootherRef.current = ScrollSmoother.create({
+          wrapper,
+          content,
+          smooth: 2,
+          effects: true,
+        });
+      }
+    }
+  }, []);
+
+  const handleNavClick = (id: string) => {
+    const el = document.querySelector(id);
+    if (!el) return;
+
+    if (smootherRef.current) {
+      requestAnimationFrame(() => {
+        smootherRef.current!.scrollTo(el, true, "top");
+      });
+    } else {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div
       ref={navContainerRef}
       className="fixed top-4 border-2 border-roit/0 z-50 h-16 transition-all duration-700 inset-x-6">
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
-          <div className="flex items-center gap-7">
-            <Image width={300} height={300} src="/img/logo.png" alt="logo" className="w-10" />
-          </div>
+          <Image
+            width={300}
+            height={300}
+            src="/img/logo.png"
+            alt="logo"
+            className="w-10"
+          />
+          <ul className="hidden md:flex gap-6 text-sm font-medium text-white">
+            {navItems.map((item) => (
+              <li
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="cursor-pointer nav-hover-btn transition">
+                {item.name}
+              </li>
+            ))}
+          </ul>
 
           <div className="flex h-full items-center">
-            <div className="hidden md:block">
-              {navItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="nav-hover-btn">
-                  {item}
-                </a>
-              ))}
-            </div>
-
             <button
               onClick={toggleAudioIndicator}
               className="ml-10 justify-between px-[1px] flex border border-roit cursor-pointer bg-black h-4 rounded-2xl w-4 items-center space-x-0.5">
@@ -95,9 +138,7 @@ const Header = () => {
                   className={clsx("indicator-line", {
                     active: isIndicatorActive,
                   })}
-                  style={{
-                    animationDelay: `${bar * 0.1}s`,
-                  }}
+                  style={{ animationDelay: `${bar * 0.1}s` }}
                 />
               ))}
             </button>

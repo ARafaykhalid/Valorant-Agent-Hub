@@ -1,5 +1,5 @@
+// SmoothScrollWrapper.tsx
 "use client";
-
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
@@ -21,19 +21,23 @@ export default function SmoothScrollWrapper({
     const smoother = ScrollSmoother.create({
       wrapper: wrapperRef.current,
       content: contentRef.current,
-      smooth: 2,
-      smoothTouch: 0.5,
+      smooth: 1.5,
+      smoothTouch: 0.1,
       effects: true,
     });
 
-    return () => {
-      smoother.kill();
-    };
+    return () => smoother.kill();
   }, []);
 
   return (
-    <div ref={wrapperRef} id="smooth-wrapper">
-      <div ref={contentRef} id="smooth-content">
+    <div
+      ref={wrapperRef}
+      id="smooth-wrapper"
+      className="fixed inset-0 h-full w-full overflow-hidden">
+      <div
+        ref={contentRef}
+        id="smooth-content"
+        className="will-change-transform min-h-screen">
         {children}
       </div>
     </div>

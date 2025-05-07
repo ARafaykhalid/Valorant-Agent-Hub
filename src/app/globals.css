@@ -6,6 +6,20 @@ body {
   overflow-x: hidden;
   background-color: #dfdff0;
   font-family: "General Sans", sans-serif;
+
+  scroll-behavior: auto !important;
+}
+
+#smooth-wrapper {
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+}
+
+#smooth-content {
+  will-change: transform;
+  min-height: 100vh;
 }
 
 @theme {
@@ -96,7 +110,6 @@ body {
 
   .animated-title {
     @apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem];
-    
   }
 
   .animated-word {
@@ -127,11 +140,11 @@ body {
 
   .card-img-mask {
     @apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5;
-    clip-path: polygon(4% 0, 70% 0%, 80% 73%, 0% 100%);
-    @media (min-width: 768px) {
-      .card-img-mask {
-        clip-path: polygon(4% 0, 83% 24%, 100% 73%, 0% 100%);
-      }
+    clip-path: polygon(4% 0, 95% 0%, 80% 73%, 0% 100%);
+    
+    @media (width >= 48rem) {
+      clip-path: polygon(4% 0, 70% 0%, 80% 73%, 0% 100%);
+      
     }
   }
 

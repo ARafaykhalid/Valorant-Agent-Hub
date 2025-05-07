@@ -2,22 +2,22 @@ import Link from "next/link";
 
 const Button = ({
   title,
-  Trailer,
+  theLink,
   id,
-  rightIcon,
+  isTrailer,
   leftIcon,
   containerClass,
 }: {
   title: string;
-  Trailer: string;
+  theLink: string;
+  isTrailer?: boolean;
   containerClass: string;
   id: string;
-  rightIcon?: React.ReactNode;
   leftIcon?: React.ReactNode;
 }) => {
   return (
     <Link
-      href={`https://www.youtube.com/watch?v=${Trailer}`}
+      href={isTrailer ? `https://www.youtube.com/watch?v=${theLink}` : theLink}
       id={id}
       target="__blank"
       className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black ${containerClass}`}>
