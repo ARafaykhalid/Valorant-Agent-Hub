@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
@@ -59,6 +59,7 @@ export const BentoCard = ({
     <div className="relative size-full">
       <video
         src={src}
+        preload="metadata"
         loop
         muted
         autoPlay
@@ -151,9 +152,7 @@ const Abilities = ({
           <BentoCard src={Ab2Vid} title={Ab2} description={Ab2Desc} />
         </BentoTilt>
 
-        <BentoTilt
-          ColorBD={ColorBD}
-          className="bento-tilt_1 md:!col-span-1">
+        <BentoTilt ColorBD={ColorBD} className="bento-tilt_1 md:!col-span-1">
           <BentoCard src={Ab3Vid} title={Ab3} description={Ab3Desc} />
         </BentoTilt>
 

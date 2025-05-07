@@ -44,19 +44,23 @@ export const Agents: agent[] = [
     AgentAboutImg: "/Tejo/img/about.jpg",
     AgentCard: "/Tejo/img/card.jpg",
     Ab1: () => <>Armageddon</>,
-    Ab1Vid: "/Tejo/videos/AbVid1.mp4",
+    Ab1Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/8060ca420965ebd775f8cdbe3589600ee5733911.mp4",
     Ab1Desc:
       "EQUIP a tactical strike targeting map. FIRE to select the origin point of the strike. FIRE again to set the end point and launch the attack, unleashing a wave of explosions along the strike path. ALT FIRE during map targeting to cancel the origin point.",
     Ab2: () => <>Special Delivery</>,
-    Ab2Vid: "/Tejo/videos/AbVid2.mp4",
+    Ab2Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/6fdd2855da57354f3f1d274bea06f8f24140ef23.mp4",
     Ab2Desc:
       "EQUIP a sticky grenade. FIRE to launch. The grenade sticks to the first surface it hits and explodes, Concussing any targets caught in the blast. ALT FIRE to launch the grenade with a single bounce instead.",
     Ab3: () => <>Guided Salvo</>,
-    Ab3Vid: "/Tejo/videos/AbVid3.mp4",
+    Ab3Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/612a857ad0b5ebfa86611af953066356cd33fe97.mp4",
     Ab3Desc:
       "EQUIP an AR targeting system. FIRE to select up to two target locations on the map. ALT FIRE to launch missiles that autonomously navigate to target locations, detonating on arrival.",
     Ab4: () => <>Stealth Drone</>,
-    Ab4Vid: "/Tejo/videos/AbVid1.mp4",
+    Ab4Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/68c56e770855ce32eab9ba4283e4496952295d9a.mp4",
     Ab4Desc:
       "EQUIP a stealth drone. FIRE to throw the drone forward, assuming direct control of its movement. FIRE again to trigger a pulse that Suppresses and Reveals enemies hit.",
     Trailer: "dRuRID5JoQY",
@@ -90,7 +94,8 @@ export const Agents: agent[] = [
     Ab2Desc:
       "EQUIP a nest of liquid metal. FIRE to launch. Upon landing, the nest becomes invisible. When ACTIVATED, it sprawls out into a large razorvine nest which slows and damages all players who move through it.",
     Ab3: () => <>Shear</>,
-    Ab3Vid: "/Vyse/videos/AbVid3.mp4",
+    Ab3Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/bacb07fdf5b13efeab5e24168f8e244257c1d0cb.mp4",
     Ab3Desc:
       "EQUIP filaments of liquid metal. FIRE to place a hidden wall trap. When an enemy crosses, an indestructible wall bursts from the ground behind them. The wall lasts for a brief time before dissipating.",
     Ab4: () => <>Arc Rose</>,
@@ -120,19 +125,23 @@ export const Agents: agent[] = [
     AgentAboutImg: "/Iso/img/about.jpg",
     AgentCard: "/Iso/img/card.jpg",
     Ab1: () => <>KILL CONTRACT</>,
-    Ab1Vid: "/Iso/videos/AbVid1.mp4",
+    Ab1Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/6fbd2b0e16ac3bda095094770ce6b1d403fc3832.mp4",
     Ab1Desc:
       "EQUIP an interdimensional arena. FIRE to hurl a column of energy through the battlefield, pulling you and the first enemy hit into the arena. You and your opponent duel to the death.",
     Ab2: () => <>CONTINGENCY</>,
-    Ab2Vid: "/Iso/videos/AbVid2.mp4",
+    Ab2Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/5e331c774ffde4e8e0c45a8844b0237b7d75ba3b.mp4",
     Ab2Desc:
       "EQUIP to assemble prismatic energy. FIRE to push an indestructible wall of energy forward that blocks bullets.",
     Ab3: () => <>DOUBLE TAP</>,
-    Ab3Vid: "/Iso/videos/AbVid3.mp4",
+    Ab3Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/11ad2731215ec978c89fdb675aaf3b591c3c3c55.mp4",
     Ab3Desc:
       "START a focus timer. Once completed, enter a flow state during which downed enemies you kill or damage generate an energy orb. Shooting this orb grants you a shield which absorbs one instance of damage from any source.",
     Ab4: () => <>UNDERCUT</>,
-    Ab4Vid: "/Iso/videos/AbVid4.mp4",
+    Ab4Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/17503f71b58f654d583a66e29dab75460677576f.mp4",
     Ab4Desc:
       "EQUIP a molecular bolt. Fire to throw it forward, applying a brief FRAGILE to all players it touches. The bolt can pass through solid objects, including walls.",
     Trailer: "8OgcHAv6Jvk",
