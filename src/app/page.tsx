@@ -15,7 +15,6 @@ import { Agents } from "@/Data/agent";
 import { LuMousePointerClick } from "react-icons/lu";
 import { HiCursorArrowRipple } from "react-icons/hi2";
 import SmoothScrollWrapper from "@/components/SmoothScrollWrapper";
-import AnimatedTitle from "@/components/AnimatedTitle";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
