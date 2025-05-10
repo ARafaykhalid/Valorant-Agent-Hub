@@ -9,7 +9,7 @@ const logos = ["/img/Zentry.png", "/img/RoitGames.png", "/img/Vercel.png"];
 const Contact = () => {
   return (
     <div id="WhoMadeThis" className="min-h-96  pb-43 w-screen bg-black px-10">
-      <AnimatedTitle title="Special Thanks To:" containerClass="" />
+      <AnimatedTitle title="Special Thanks To:" containerClass="text-center" />
       <div className="grid md:grid-cols-3 grid-cols-1 my-5 grayscale">
         {logos.map((logo, index) => (
           <Image
@@ -46,7 +46,7 @@ const Contact = () => {
 
       <AnimatedTitle
         title="Abdul Rafay Khalid"
-        containerClass="!text-5xl md:!text-8xl"
+        containerClass="!text-5xl text-center md:!text-8xl"
       />
       <p className="my-10 text-xs text-white text-center">
         I&apos;m always eager to tackle new challenges and bring fresh
