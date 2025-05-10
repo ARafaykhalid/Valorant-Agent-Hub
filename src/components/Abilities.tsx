@@ -121,6 +121,7 @@ const Abilities = ({
           href={`https://www.youtube.com/watch?v=${Trailer}`}>
           <div className="relative size-full">
             <iframe
+              loading="lazy"
               src={`https://www.youtube.com/embed/${Trailer}?autoplay=1&mute=1&loop=1&controls=0&playlist=${Trailer}`}
               className="absolute left-0 top-0 size-full object-cover scale-225 xl:scale-125 object-center"
               allow="autoplay; encrypted-media"

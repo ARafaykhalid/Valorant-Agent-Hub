@@ -86,11 +86,13 @@ export const Agents: agent[] = [
     AgentAboutImg: "/Vyse/img/about.jpg",
     AgentCard: "/Vyse/img/card.jpg",
     Ab1: () => <>Steel Garden</>,
-    Ab1Vid: "/Vyse/videos/AbVid1.mp4",
+    Ab1Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/f9d32afb39a3260b915ea6ef441054c904a69e91.mp4",
     Ab1Desc:
       "EQUIP a bramble of liquid metal. FIRE to send the metal erupting from you as a torrent of metal thorns, JAMMING enemy primary weapons after a brief windup.",
     Ab2: () => <>Razorvine</>,
-    Ab2Vid: "/Vyse/videos/AbVid2.mp4",
+    Ab2Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/84154b3401b08acad60d739616017a4fcd86710a.mp4",
     Ab2Desc:
       "EQUIP a nest of liquid metal. FIRE to launch. Upon landing, the nest becomes invisible. When ACTIVATED, it sprawls out into a large razorvine nest which slows and damages all players who move through it.",
     Ab3: () => <>Shear</>,
@@ -99,7 +101,8 @@ export const Agents: agent[] = [
     Ab3Desc:
       "EQUIP filaments of liquid metal. FIRE to place a hidden wall trap. When an enemy crosses, an indestructible wall bursts from the ground behind them. The wall lasts for a brief time before dissipating.",
     Ab4: () => <>Arc Rose</>,
-    Ab4Vid: "/Vyse/videos/AbVid4.mp4",
+    Ab4Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/5cefca2b93f097285ce2cb4f20fec7184b555218.mp4",
     Ab4Desc:
       "EQUIP an Arc Rose. Target a surface and FIRE to place a stealthed Arc Rose, or ALT FIRE to place the Arc Rose through it. REUSE to blind all players looking at it. This ability can be picked up to be REDEPLOYED.",
     Trailer: "btpWg1gDXIE",
@@ -167,19 +170,23 @@ export const Agents: agent[] = [
     AgentAboutImg: "/Gekko/img/about.jpg",
     AgentCard: "/Gekko/img/card.jpg",
     Ab1: () => <>THRASH</>,
-    Ab1Vid: "/Gekko/videos/AbVid1.mp4",
+    Ab1Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/fe30846150b8f87f7f945a3f0c82e59d0522dbdc.mp4",
     Ab1Desc:
       "EQUIP Thrash FIRE to link with Thrash's mind and steer her through enemy territory ACTIVATE to lunge forward and explode, detaining any enemies in a small radius. When Thrash expires she reverts into a dormant globule INTERACT to reclaim the globule and gain another Thrash charge after a short cooldown. Thrash can be reclaimed once.",
     Ab2: () => <>MOSH PIT</>,
-    Ab2Vid: "/Gekko/videos/AbVid2.mp4",
+    Ab2Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/85f2c3958091bf4b8fb475c8bda0dcb10a409fbc.mp4",
     Ab2Desc:
       "EQUIP Mosh FIRE to throw Mosh like a grenade ALT FIRE to throw underhand. Upon landing Mosh duplicates across a large area then after a short delay explodes.",
     Ab3: () => <>DIZZY</>,
-    Ab3Vid: "/Gekko/videos/AbVid3.mp4",
+    Ab3Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/f3a565e0cde441f1754eeadda2427020a795d4a0.mp4",
     Ab3Desc:
       "EQUIP Dizzy FIRE to send Dizzy soaring forward through the air. Dizzy charges then unleashes plasma blasts at enemies in line of sight. Enemies hit by her plasma are blinded. When Dizzy expires she reverts into a dormant globule INTERACT to reclaim the globule and gain another Dizzy charge after a short cooldown.",
     Ab4: () => <>WINGMAN</>,
-    Ab4Vid: "/Gekko/videos/AbVid4.mp4",
+    Ab4Vid:
+      "https://cmsassets.rgpub.io/sanity/files/dsfx7636/game_data/e9a92a506942c735f5a986ee9489fad34b192843.mp4",
     Ab4Desc:
       "EQUIP Wingman FIRE to send Wingman forward seeking enemies. Wingman unleashes a concussive blast toward the first enemy he sees ALT FIRE when targeting a Spike site or planted Spike to have Wingman defuse or plant the Spike. To plant, Gekko must have the Spike in his inventory. When Wingman expires he reverts into a dormant globule INTERACT to reclaim the globule and gain another Wingman charge after a short cooldown.",
     Trailer: "iYFh_XAXSPk",
