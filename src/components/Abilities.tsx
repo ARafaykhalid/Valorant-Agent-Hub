@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import AnimatedTitle from "./AnimatedTitle";
 export const BentoTilt = ({
   children,
   className = "",
@@ -65,6 +66,7 @@ export const BentoCard = ({
         autoPlay
         className="absolute left-0 top-0 size-full object-cover object-center"
       />
+
       <div className="absolute h-full w-full mask-radial-at-top-left mask-radial-to-65% bg-black" />
       <div className="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
         <div>
@@ -140,6 +142,10 @@ const Abilities = ({
         </Link>
       </BentoTilt>
 
+      <AnimatedTitle
+        title={"Abilities"}
+        containerClass="my-10 !text-white !text-shadow-lg text-center"
+      />
       <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
         <BentoTilt
           ColorBD={ColorBD}

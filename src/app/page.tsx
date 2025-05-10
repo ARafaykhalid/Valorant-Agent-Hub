@@ -15,6 +15,7 @@ import { Agents } from "@/Data/agent";
 import { LuMousePointerClick } from "react-icons/lu";
 import { HiCursorArrowRipple } from "react-icons/hi2";
 import SmoothScrollWrapper from "@/components/SmoothScrollWrapper";
+import AnimatedTitle from "@/components/AnimatedTitle";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 
@@ -24,9 +25,10 @@ const App = () => {
   const [mouseMove, setMouseMove] = useState(0);
   const [hasClicked, setHasClicked] = useState<boolean>(false);
   const [FirstClick, setFirstClick] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [loadedImages, setLoadedImages] = useState<number>(0);
   const [transformStyle, settransformStyle] = useState<string>("");
+
   const lastMoveTime = useRef<number>(Date.now());
   const nextImageRef = useRef<HTMLDivElement>(null);
   const TiltImageRef = useRef<HTMLDivElement>(null);
@@ -59,6 +61,28 @@ const App = () => {
   };
 
   useEffect(() => {
+    // Function to check if the page is still loading
+    const checkLoadingStatus = () => {
+      if (document.readyState === "complete") {
+        setIsLoading(false);
+      } else {
+        setIsLoading(true);
+      }
+    };
+
+    // Set initial loading status
+    checkLoadingStatus();
+
+    // Set an event listener for the `DOMContentLoaded` event
+    document.addEventListener("readystatechange", checkLoadingStatus);
+
+    // Cleanup listener on component unmount
+    return () => {
+      document.removeEventListener("readystatechange", checkLoadingStatus);
+    };
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const timeSinceLastMove = lastMoveTime.current;
 
@@ -87,11 +111,15 @@ const App = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalAgents);
   };
 
+  // Define how many images you want to load (including the fallback)
+  const totalImagesToLoad = 3 + (FirstClick ? 0 : 1); // 3 hero images + fallback if not clicked yet
+
+  // Once all images are loaded, stop loading
   useEffect(() => {
-    if (loadedImages >= totalAgents) {
+    if (loadedImages >= totalImagesToLoad) {
       setIsLoading(false);
     }
-  }, [loadedImages, totalAgents]);
+  }, [loadedImages, totalImagesToLoad]);
 
   useGSAP(
     () => {
@@ -152,7 +180,7 @@ const App = () => {
       <SmoothScrollWrapper>
         <div className="relative h-dvh w-screen overflow-x-hidden" id="About">
           {isLoading && (
-            <div className="flex-center absolute z-100 h-dvh w-screen overflow-hidden bg-violet-50">
+            <div className="flex-center flex-col gap-10 absolute z-100 h-dvh w-screen overflow-hidden bg-violet-50">
               <div className="three-body">
                 <div className="three-body__dot" />
                 <div className="three-body__dot" />
@@ -186,7 +214,7 @@ const App = () => {
                       src={getImageSrc((currentIndex + 1) % totalAgents)}
                       width={2000}
                       height={2000}
-                      priority 
+                      priority
                       alt="current"
                       id="current-Image"
                       className="size-64 origin-center scale-150 object-cover object-center"
@@ -201,10 +229,10 @@ const App = () => {
                   src={getImageSrc(currentIndex)}
                   width={2000}
                   height={2000}
-                  priority 
+                  priority
                   alt="next"
                   id="next-Image"
-                  className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
+                  className="absolute-center invisible absolute z-20 h-64 w-64 size-64 object-cover object-center"
                 />
               </div>
 
@@ -212,7 +240,7 @@ const App = () => {
                 src={getImageSrc(currentIndex - 1)}
                 width={2000}
                 height={2000}
-                priority 
+                priority
                 alt="Background"
                 className="absolute left-0 delay-1000 top-0 size-full object-cover object-center"
                 onLoad={handleImageLoad}
@@ -222,9 +250,11 @@ const App = () => {
                 src={`/img/hero-1.jpg`}
                 width={2000}
                 height={2000}
-                priority 
+                priority
                 alt="Background"
-                className={`absolute z-25 left-0 top-0 size-full object-cover object-center ${FirstClick? "opacity-0":"opacity-100"}`}
+                className={`absolute z-25 left-0 top-0 size-full object-cover object-center ${
+                  FirstClick ? "opacity-0" : "opacity-100"
+                }`}
                 onLoad={handleImageLoad}
               />
             </div>
