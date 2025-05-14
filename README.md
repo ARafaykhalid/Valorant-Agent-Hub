@@ -7,12 +7,12 @@ A sleek and interactive **Valorant Agent Hub** built using **Next.js**, **Tailwi
 
 ## 🚀 Features
 
-- 🧠 Detailed Agent Profiles
+- 🧠 Detailed 4 Agents Profiles
 - ✨ Modern, clean UI with Tailwind CSS
 - ⚡ Fast and optimized with Next.js
 - 🔐 Fully type-safe using TypeScript
 - 📱 Fully responsive and mobile-friendly
-- 🎥 Smooth UI animations (if using GSAP or Framer Motion)
+- 🎥 Smooth UI animations
 
 ---
 
