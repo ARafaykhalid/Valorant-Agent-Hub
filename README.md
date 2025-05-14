@@ -29,8 +29,8 @@ A sleek and interactive **Valorant Agent Hub** built using **Next.js**, **Tailwi
 
 ```bash
 # Clone the repository
-git clone https://github.com/ARafayKhalid/valorant.git
-cd valorant
+git clone https://github.com/ARafayKhalid/Valorant-Agent-Hub.git
+cd Valorant-Agent-Hub
 
 # Install dependencies
 npm install
