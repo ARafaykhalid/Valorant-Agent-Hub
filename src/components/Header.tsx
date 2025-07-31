@@ -1,5 +1,4 @@
 "use client";
-import clsx from "clsx";
 import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
@@ -17,32 +16,32 @@ const Header = () => {
     { name: `Who Made This?`, id: "#WhoMadeThis" },
   ];
 
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const [isIndicatorActive, setIsIndicatorActive] = useState(false);
+  // const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  // const [isIndicatorActive, setIsIndicatorActive] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const audioElementRef = useRef<HTMLAudioElement>(null);
+  // const audioElementRef = useRef<HTMLAudioElement>(null);
   const navContainerRef = useRef<HTMLDivElement>(null);
   const smootherRef = useRef<ScrollSmoother | null>(null);
 
   const { y: currentScrollY } = useWindowScroll();
 
-  const toggleAudioIndicator = () => {
-    setIsAudioPlaying((prev) => !prev);
-    setIsIndicatorActive((prev) => !prev);
-  };
+  // const toggleAudioIndicator = () => {
+  //   setIsAudioPlaying((prev) => !prev);
+  //   setIsIndicatorActive((prev) => !prev);
+  // };
 
-  useEffect(() => {
-    const audio = audioElementRef.current;
-    if (!audio) return;
+  // useEffect(() => {
+  //   const audio = audioElementRef.current;
+  //   if (!audio) return;
 
-    if (isAudioPlaying) {
-      audio.play().catch(() => {});
-    } else {
-      audio.pause();
-    }
-  }, [isAudioPlaying]);
+  //   if (isAudioPlaying) {
+  //     audio.play().catch(() => {});
+  //   } else {
+  //     audio.pause();
+  //   }
+  // }, [isAudioPlaying]);
 
   useEffect(() => {
     if (!navContainerRef.current) return;
@@ -101,7 +100,8 @@ const Header = () => {
   return (
     <div
       ref={navContainerRef}
-      className="fixed top-4 border-2 border-roit/0 z-50 h-16 transition-all duration-700 inset-x-6">
+      className="fixed top-4 border-2 border-roit/0 z-50 h-16 transition-all duration-700 inset-x-6"
+    >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
           <Image
@@ -116,13 +116,14 @@ const Header = () => {
               <li
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className="cursor-pointer nav-hover-btn transition">
+                className="cursor-pointer nav-hover-btn transition"
+              >
                 {item.name}
               </li>
             ))}
           </ul>
 
-          <div className="flex h-full items-center">
+          {/* <div className="flex h-full items-center">
             <button
               onClick={toggleAudioIndicator}
               className="ml-10 justify-between px-[1px] flex border border-roit cursor-pointer bg-black h-4 rounded-2xl w-4 items-center space-x-0.5">
@@ -142,7 +143,7 @@ const Header = () => {
                 />
               ))}
             </button>
-          </div>
+          </div> */}
         </nav>
       </header>
     </div>
